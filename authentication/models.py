@@ -29,22 +29,22 @@ class CustomUserManager(BaseUserManager):
         user.save()
         return user
     
-    class User(AbstractBaseUser, PermissionsMixin):
-        fullname = models.CharField(max_length=200)
-        email = models.EmailField(unique=True)
-        role = models.CharField(choices=ROLES, max_length=10)
-        created_at = models.DateTimeField(auto_now_add=True)
-        updated_at = models.DateTimeField(auto_now=True)
-        is_staff = models.BooleanField(default=False)
-        is_superuser = models.BooleanField(default=False)
-        is_active = models.BooleanField(default=True)
-        
-        USERNAME_FIELD = 'email'
-        object = CustomUserManager()
-        
-        def __str__(self):
-            return self.email
-        
-        class Meta:
-            ordering = ('-created_at')
-        
+class User(AbstractBaseUser, PermissionsMixin):
+    fullname = models.CharField(max_length=200)
+    email = models.EmailField(unique=True)
+    role = models.CharField(choices=ROLES, max_length=10)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    
+    USERNAME_FIELD = 'email'
+    object = CustomUserManager()
+    
+    def __str__(self):
+        return self.email
+    
+    class Meta:
+        ordering = ('-created_at',)
+    

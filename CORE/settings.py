@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # INSTALLED APP
-    'rest_framework'
+    'rest_framework',
     
     # LOCAL APPS
     'authentication'
